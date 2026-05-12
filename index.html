@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en" data-theme="night">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Tracker</title>
+
+    <!-- DaisyUI + Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- DaisyUI Themes -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      * {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-base-200 min-h-screen">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container mx-auto px-6">
+        <header class="py-12">
+          <h1 class="text-2xl font-black text-primary">
+            Job Application Tracker
+          </h1>
+        </header>
+
+        <div class="grid grid-cols-3 gap-8">
+            <!-- Total Applications count -->
+          <div class="card bg-base-100 shadow-2xl border border-base-300">
+            <div class="card-body">
+              <h2 class="font-bold uppercase opacity-60">Total</h2>
+              <p id="total-counter" class="text-2xl font-black">0</p>
+            </div>
+          </div>
+         <!-- Interview Count -->
+          <div class="card bg-base-100 shadow-2xl border border-base-300">
+            <div class="card-body">
+              <h2 class="font-bold uppercase opacity-60">Interview</h2>
+              <p id="interview-counter" class="text-2xl font-black">0</p>
+            </div>
+          </div>
+            <!-- Rejected Count -->
+          <div class="card bg-base-100 shadow-2xl border border-base-300">
+            <div class="card-body">
+              <h2 class="font-bold uppercase opacity-60">Rejected</h2>
+              <p id="rejected-counter" class="text-2xl font-black">0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- All Applications Section -->
+    <section id="allAplication" class="container mx-auto mt-12 px-6">
+      <!-- Navigation and stats -->
+      <div class="Nav">
+        <div class="flex justify-between items-center mb-5">
+          <h2 class="text-xl font-bold">Available Jobs</h2>
+          <p id="nav-total-counter" class="opacity-60">0 Jobs</p>
+        </div>
+        <div>
+          <button onclick="showView('view-available')" class="btn btn-primary">All</button>
+          <button onclick="showView('view-interview')" class="btn btn-ghost">Interview</button>
+          <button onclick="showView('view-rejected')" class="btn btn-ghost">Rejected</button>
+        </div>
+      </div>
+      <!-- Job Listings -->
+      <div id="view-available" class=" mt-4 space-y-2">
+        <!-- Jobs -->
+        <div class="jobs card bg-base-100 shadow border border-base-300 mb-4">
+          <div class="card-body p-5">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-primary">
+                  Mobile First Corp
+                </h3>
+                <p class="text-sm font-semibold opacity-80">
+                  React Native Developer
+                </p>
+              </div>
+              <button class="btn btn-ghost btn-xs  btn-error delete-btn">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+
+            <div class="mt-2 space-y-2">
+              <div class="flex items-center gap-4 text-xs opacity-60">
+                <span><i class="fa-solid fa-location-dot "></i> Remote</span>
+                <span><i class="fa-solid fa-clock "></i> Full-time</span>
+                <span><i class="fa-solid fa-dollar-sign"></i>130k - 175k</span>
+              </div>
+
+              <div class="btn btn-primary btn-xs rounded-full opacity-50 uppercase font-bold mt-1 status-btn" >
+                Not Applied
+              </div>
+            </div>
+
+            <p class="text-sm mt-1 opacity-70 ">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+
+            <div class="card-actions justify-start mt-2 gap-2">
+              <button class="btn  btn-sm btn-soft btn-success">
+                Interview
+              </button>
+              <button class="btn  btn-sm btn-soft btn-error">Rejected</button>
+            </div>
+          </div>
+        </div>
+        <!-- jobs -->
+        <div class="jobs card bg-base-100 shadow border border-base-300 mb-4">
+          <div class="card-body p-5">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-primary">
+                  WebFlow Agency
+                </h3>
+                <p class="text-sm font-semibold opacity-80">
+                  Web Designer & Developer
+                </p>
+              </div>
+              <button class="btn btn-ghost btn-xs  btn-error delete-btn">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+
+            <div class="mt-2 space-y-2">
+              <div class="flex items-center gap-4 text-xs opacity-60">
+                <span><i class="fa-solid fa-location-dot "></i> Los Angeles, CA</span>
+                <span><i class="fa-solid fa-clock "></i> Part-time</span>
+                <span><i class="fa-solid fa-dollar-sign"></i>80k - 120k</span>
+              </div>
+
+              <div class="btn btn-primary btn-xs rounded-full opacity-50 uppercase font-bold mt-1 status-btn" >
+                Not Applied
+              </div>
+            </div>
+
+            <p class="text-sm mt-1 opacity-70 ">
+              Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.
+            </p>
+
+            <div class="card-actions justify-start mt-2 gap-2">
+              <button class="btn  btn-sm btn-soft btn-success">Interview</button>
+              <button class="btn  btn-sm btn-soft btn-error">Rejected</button>
+            </div>
+          </div>
+        </div>
+        <!-- jobs End -->
+         <!-- jobs -->
+        <div class="jobs card bg-base-100 shadow border border-base-300 mb-4">
+          <div class="card-body p-5">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-primary">
+                  DataViz Solutions
+                </h3>
+                <p class="text-sm font-semibold opacity-80">
+                  Data Visualization Specialist
+                </p>
+              </div>
+              <button class="btn btn-ghost btn-xs  btn-error delete-btn">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+
+            <div class="mt-2 space-y-2">
+              <div class="flex items-center gap-4 text-xs opacity-60">
+                <span><i class="fa-solid fa-location-dot "></i>Boston, MA</span>
+                <span><i class="fa-solid fa-clock "></i> Full-time</span>
+                <span><i class="fa-solid fa-dollar-sign"></i>125,000 - 165,000</span>
+              </div>
+
+              <div class="btn btn-primary btn-xs rounded-full opacity-50 uppercase font-bold mt-1 status-btn">
+                Not Applied
+              </div>
+            </div>
+
+            <p class="text-sm mt-1 opacity-70 ">
+              Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.
+            </p>
+
+            <div class="card-actions justify-start mt-2 gap-2">
+              <button class="btn  btn-sm btn-soft btn-success">Interview</button>
+              <button class="btn  btn-sm btn-soft btn-error">Rejected</button>
+            </div>
+          </div>
+        </div>
+        <!-- jobs End -->
+
+         <!-- jobs -->
+          <div class="jobs card bg-base-100 shadow border border-base-300 mb-4">
+  <div class="card-body p-5">
+    <div class="flex justify-between items-start">
+      <div>
+        <h3 class="text-xl font-bold text-primary">TechCorp Industries</h3>
+        <p class="text-sm font-semibold opacity-80">Senior Frontend Developer</p>
+      </div>
+      <button class="btn btn-ghost btn-xs btn-error delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+    <div class="mt-2 space-y-2">
+      <div class="flex items-center gap-4 text-xs opacity-60">
+        <span><i class="fa-solid fa-location-dot"></i> San Francisco, CA</span>
+        <span><i class="fa-solid fa-clock"></i> Full-time</span>
+        <span><i class="fa-solid fa-dollar-sign"></i> 130,000 - 175,000</span>
+      </div>
+      <div class="btn btn-primary btn-xs rounded-full opacity-50 uppercase font-bold mt-1 status-btn">
+        Not Applied
+      </div>
+    </div>
+    <p class="text-sm mt-1 opacity-70">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript.</p>
+    <div class="card-actions justify-start mt-2 gap-2">
+      <button class="btn  btn-sm btn-soft btn-success">Interview</button>
+      <button class="btn  btn-sm btn-soft btn-error">Rejected</button>
+    </div>
+  </div>
+</div>
+<!-- jobs End -->
+    <!-- jobs -->
+     <div class="jobs card bg-base-100 shadow border border-base-300 mb-4">
+  <div class="card-body p-5">
+    <div class="flex justify-between items-start">
+      <div>
+        <h3 class="text-xl font-bold text-primary">CloudFirst Inc</h3>
+        <p class="text-sm font-semibold opacity-80">Backend Developer</p>
+      </div>
+      <button class="btn btn-ghost btn-xs btn-error delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+    <div class="mt-2 space-y-2">
+      <div class="flex items-center gap-4 text-xs opacity-60">
+        <span><i class="fa-solid fa-location-dot"></i> Seattle, WA</span>
+        <span><i class="fa-solid fa-clock"></i> Full-time</span>
+        <span><i class="fa-solid fa-dollar-sign"></i> 140,000 - 190,000</span>
+      </div>
+      <div class="btn btn-primary btn-xs rounded-full opacity-50 uppercase font-bold mt-1 status-btn">
+        Not Applied
+      </div>
+    </div>
+    <p class="text-sm mt-1 opacity-70">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices.</p>
+    <div class="card-actions justify-start mt-2 gap-2">
+      <button class="btn  btn-sm btn-soft btn-success">Interview</button>
+      <button class="btn  btn-sm btn-soft btn-error">Rejected</button>
+    </div>
+  </div>
+</div>
+<!-- jobs End -->
+ <!-- jobs -->
+  <div class="jobs card bg-base-100 shadow border border-base-300 mb-4">
+  <div class="card-body p-5">
+    <div class="flex justify-between items-start">
+      <div>
+        <h3 class="text-xl font-bold text-primary">Innovation Labs</h3>
+        <p class="text-sm font-semibold opacity-80">UI/UX Engineer</p>
+      </div>
+      <button class="btn btn-ghost btn-xs btn-error delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+    <div class="mt-2 space-y-2">
+      <div class="flex items-center gap-4 text-xs opacity-60">
+        <span><i class="fa-solid fa-location-dot"></i> Austin, TX</span>
+        <span><i class="fa-solid fa-clock"></i> Full-time</span>
+        <span><i class="fa-solid fa-dollar-sign"></i> 110,000 - 150,000</span>
+      </div>
+      <div class="btn btn-primary btn-xs rounded-full opacity-50 uppercase font-bold mt-1 status-btn">
+        Not Applied
+      </div>
+    </div>
+    <p class="text-sm mt-1 opacity-70">Create beautiful and functional user interfaces for our suite of products. Strong design skills required.</p>
+    <div class="card-actions justify-start mt-2 gap-2">
+      <button class="btn  btn-sm btn-soft btn-success">Interview</button>
+      <button class="btn  btn-sm btn-soft btn-error">Rejected</button>
+    </div>
+  </div>
+</div>
+<!-- jobs End -->
+ <!-- job -->
+  <div class="jobs card bg-base-100 shadow border border-base-300 mb-4">
+  <div class="card-body p-5">
+    <div class="flex justify-between items-start">
+      <div>
+        <h3 class="text-xl font-bold text-primary">MegaCorp Solutions</h3>
+        <p class="text-sm font-semibold opacity-80">JavaScript Developer</p>
+      </div>
+      <button class="btn btn-ghost btn-xs btn-error delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+    <div class="mt-2 space-y-2">
+      <div class="flex items-center gap-4 text-xs opacity-60">
+        <span><i class="fa-solid fa-location-dot"></i> New York, NY</span>
+        <span><i class="fa-solid fa-clock"></i> Full-time</span>
+        <span><i class="fa-solid fa-dollar-sign"></i> 130,000 - 170,000</span>
+      </div>
+      <div class="btn btn-primary btn-xs rounded-full opacity-50 uppercase font-bold mt-1 status-btn">
+        Not Applied
+        </div>
+    </div>
+    <p class="text-sm mt-1 opacity-70">Build enterprise applications with JavaScript and modern frameworks. Competitive compensation offered.</p>
+    <div class="card-actions justify-start mt-2 gap-2">
+      <button class="btn  btn-sm btn-soft btn-success">Interview</button>
+      <button class="btn  btn-sm btn-soft btn-error">Rejected</button>
+    </div>
+  </div>
+</div>
+<!-- job End -->
+ <!-- jobs -->
+  <div class="jobs card bg-base-100 shadow border border-base-300 mb-4">
+  <div class="card-body p-5">
+    <div class="flex justify-between items-start">
+      <div>
+        <h3 class="text-xl font-bold text-primary">StartupXYZ</h3>
+        <p class="text-sm font-semibold opacity-80">Full Stack Engineer</p>
+      </div>
+      <button class="btn btn-ghost btn-xs btn-error delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+    <div class="mt-2 space-y-2">
+      <div class="flex items-center gap-4 text-xs opacity-60">
+        <span><i class="fa-solid fa-location-dot"></i> Remote</span>
+        <span><i class="fa-solid fa-clock"></i> Full-time</span>
+        <span><i class="fa-solid fa-dollar-sign"></i> 120,000 - 160,000</span>
+      </div>
+      <div class="btn btn-primary btn-xs rounded-full opacity-50 uppercase font-bold mt-1 status-btn">
+        Not Applied
+      </div>
+    </div>
+    <p class="text-sm mt-1 opacity-70">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required.</p>
+    <div class="card-actions justify-start mt-2 gap-2">
+      <button class="btn  btn-sm btn-soft btn-success">Interview</button>
+      <button class="btn  btn-sm btn-soft btn-error">Rejected</button>
+    </div>
+  </div>
+</div>
+<!-- jobs End -->
+
+      </div>
+      <!-- Interview Jobs -->
+      <div id="view-interview" class="job-listings mt-4 hidden space-y-2">
+        <!-- Interview Jobs -->
+        <p class="text-center text-sm opacity-60">No interview jobs yet.</p>
+
+      </div>
+      <!-- Rejected Jobs -->
+        <div id="view-rejected" class="job-listings mt-4 hidden space-y-2">
+            <!-- Rejected Jobs -->
+            <p class="text-center text-sm opacity-60">No rejected jobs yet.</p>
+        </div>
+    </section>
+
+    <script src="script/machine.js"></script>
+    <script src="script/available.js"></script>
+    <script src="script/interview.js"></script>
+    <script src="script/rejected.js"></script>
+  </body>
+</html>
