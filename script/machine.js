@@ -5,7 +5,7 @@
 
 // Update job statistics(5mints)
  function updateStats() {
-    const totalJobs = document.querySelectorAll("#view-available .jobs").length;
+    const totalJobs = document.querySelectorAll(".jobs").length;
     // console.log("Total Jobs:", totalJobs);
     document.getElementById("total-counter").textContent = totalJobs;
 
@@ -102,7 +102,7 @@ function showView(viewId) {
 }
    
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('Machine is loading!', function() {
     updateStats();
     showView('view-available');
 });
